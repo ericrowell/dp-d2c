@@ -267,7 +267,7 @@ module.exports = angular.module('app', [
     .component('footNotes', r2a.react2angular(FootNotes, ['header', 'message']))
     .component('needsAnalysis', r2a.react2angular(NeedsAnalysis))
     .component('discountBanner', r2a.react2angular(DiscountBanner, ['hideIcon', 'hasDiscount', 'discountIsStatic', 'discountMessage']))
-    .component('planPanel', r2a.react2angular(PlanPanel, ['product', 'planType', 'planTypeName', 'benefits', 'hasMedisave', 'tooltip', 'additionalStyle', 'showSelectButton', 'selectBasePlan', 'selectSupplementaryPlan', 'updateProductInfo', 'downloadSummaryAndContract', 'submitButtonStyle']))
+    .component('planPanel', r2a.react2angular(PlanPanel, ['product', 'planType', 'planTypeName', 'benefits', 'hasMedisave', 'tooltip', 'additionalStyle', 'showSelectButton', 'selectBasePlan', 'selectSupplementaryPlan', 'updateProductInfo', 'downloadSummaryAndContract', 'submitButtonStyle', 'paymentFrequency']))
     .component('redirectToLeadGenPlmf', redirectToLeadGenPlmf)
 
     .service('Redux', Redux)

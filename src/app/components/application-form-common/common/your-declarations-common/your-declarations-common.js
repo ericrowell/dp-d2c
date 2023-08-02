@@ -5,7 +5,7 @@ const setPartnerChannelDec = (decType, partnerCH) =>
     : decType.toLowerCase();
 
 /** @ngInject */
-function yourDeclarationsCommonController($timeout, $http, dataStoreService, constants, utils) {
+function yourDeclarationsCommonController($rootScope, $timeout, $http, $interval, $state, dataStoreService, apiService, constants, utils) {
   var vm = this;
   var host = location.href;
   vm.downloadTermConditions = downloadTermConditions;
@@ -17,6 +17,7 @@ function yourDeclarationsCommonController($timeout, $http, dataStoreService, con
     vm.setStatus = setStatus;
     vm.channel = dataStoreService.getItem('channel');
     vm.partnerChannel = dataStoreService.getItem('partnerChannel');
+    vm.creditCardEnrollmentEnabled = dataStoreService.getItem('creditCardEnrollmentEnabled');
     vm.disclaimer = [
       'I understand that I have an obligation to provide responses for this application which are correct and complete as of today. I confirm that I have reviewed and where necessary, updated those answers to correctly and completely reflect information which Prudential can rely on for purposes of this application; and',
       `I acknowledge that I have read and understood the cover page, policy illustration and product summary, including any coverage exclusion. I have read, understood, consent to and confirm the contents of the Declarations above. In addition, I understand and agree that (i) any policy issued may not be valid if a
@@ -36,6 +37,7 @@ function yourDeclarationsCommonController($timeout, $http, dataStoreService, con
     }, 100);
 
     loadDeclaration();
+    getIpayConfig();
   };
 
   function downloadTermConditions() {
@@ -193,7 +195,40 @@ function yourDeclarationsCommonController($timeout, $http, dataStoreService, con
 
   // 0 for close, 1 for accept
   function closeDialog(status) {
-    vm.close({ $value: status });
+    if (vm.creditCardEnrollmentEnabled && vm.profile.reqType === 'PS' && status === 1) {
+      const url = `${vm.ipayUrl}?app_id=${vm.appId}&session_token=${vm.profile.customID}`;
+      window.open(url);
+      $rootScope.$broadcast('spinner_show');
+      dataStoreService.session.setObject('current_process', 'credit_card_enrollment');
+      let count = 1;
+      var statusChecker = $interval(function () {
+        $rootScope.$broadcast('spinner_show');
+        apiService.getEnrollmentStatus(vm.profile.customID).then((res) => {
+          if (res.data.result === 'YES') {
+            vm.close({ $value: status });
+            $interval.cancel(statusChecker);
+            dataStoreService.session.setObject('current_process', '');
+            $rootScope.$broadcast('spinner_hide');
+          }
+          if (count >= vm.pollingCount) {
+            $interval.cancel(statusChecker);
+            dataStoreService.session.setObject('current_process', '');
+            $rootScope.$broadcast('spinner_hide');
+            vm.close({ $value: 0 });
+            $state.go('app.psEntry');
+          }
+        });
+      }, vm.pollingDelay, vm.pollingCount);
+    } else {
+      vm.close({ $value: status });
+    }
+  }
+
+  function getIpayConfig() {
+    vm.ipayUrl = dataStoreService.getItem('creditCardEnrollmentIpayUrl');
+    vm.appId = dataStoreService.getItem('creditCardEnrollmentAppId');
+    vm.pollingCount = dataStoreService.getItem('creditCardEnrollmentPollingCount');
+    vm.pollingDelay = dataStoreService.getItem('creditCardEnrollmentPollingDelay');
   }
 
   function setStatus(s) {

@@ -349,6 +349,13 @@
           margin-left: 80px;
           font-family: $default-bold-font;
         }
+        .payment-frequency {
+          flex: 1;
+          text-align: right;
+          margin-left: 80px;
+          font-family: $default-bold-font;
+          color: #DBDBDB;
+        }
         .suffix-text {
           flex: 1;
           text-align: right;
@@ -406,6 +413,13 @@
           }
           .price-tag {
             color: $secondary-font-color;
+          }
+          .payment-frequency {
+            flex: 1;
+            text-align: right;
+            margin-left: 80px;
+            font-family: $default-bold-font;
+            color: #DBDBDB;
           }
         }
         .extra-info {
@@ -484,6 +498,443 @@
         .group-title {
           font-size: 16px;
         }
+      }
+    }
+  }
+
+  .ps-premium-summary-cc {
+    padding-bottom: 30px;
+    &.standard {
+      border-top: 10px solid #F2C75C;
+    }
+    &.plus {
+      border-top: 10px solid #5CB8B2;
+    }
+    &.premier {
+      border-top: 10px solid #F09491;
+    }
+    .header-section {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      .header-title {
+        p {
+          font-family: $default-font;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 36px;
+          text-align: center;
+          color: #000000;
+        }
+      }
+      .header-info {
+        p {
+          font-family: $default-font;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 36px;
+          text-align: center;
+          color: #000000;
+          margin-bottom: 0px;
+        }
+      }
+    }
+    .base-section {
+      .base-header {
+        background: #F2F5F7;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        padding: 2px 30px;
+        margin-bottom: 0px;
+        span {
+          font-family: $default-font;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 36px;
+          color: #000000;
+        }
+      }
+      .base-info {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 32px;
+        margin-left: 30px;
+        margin-right: 30px;
+        p {
+          font-weight: 700;
+          span {
+            align-items: right;
+          }
+        }
+        span {
+           align-items: right;
+           font-weight: 700;
+        }
+      }
+      .base-payment-frequency {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #68737A;
+        display: flex;
+        padding-right: 30px;
+        span {
+          margin-left: auto;
+        }
+      }
+      .medisave-info {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin-left: 30px;
+        margin-right: 30px;
+        p {
+          font-weight: 400;
+          span {
+            align-items: right;
+          }
+        }
+        span {
+           align-items: right;
+           font-weight: 700;
+        }
+      }
+      .discount-info {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin-left: 30px;
+        margin-right: 30px;
+        p {
+          font-weight: 400;
+          span {
+            align-items: right;
+          }
+        }
+        span {
+           align-items: right;
+           font-weight: 700;
+        }
+      }
+    }
+    .rider-section {
+      margin-top: 30px;
+      .rider-header {
+        background: #F2F5F7;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        padding: 2px 30px;
+        margin-bottom: 0px;
+        span {
+          font-family: $default-font;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 36px;
+          color: #000000;
+        }
+      }
+      .rider-info {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 32px;
+        margin-left: 30px;
+        margin-right: 30px;
+        p {
+          font-weight: 700;
+          span {
+            align-items: right;
+          }
+        }
+        span {
+           align-items: right;
+           font-weight: 700;
+        }
+      }
+      .rider-payment-frequency {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #68737A;
+        display: flex;
+        padding-right: 30px;
+        margin-bottom: 10px;
+        span {
+          margin-left: auto;
+        }
+      }
+      .medisave-info {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin-left: 30px;
+        margin-right: 30px;
+        p {
+          font-weight: 700;
+          span {
+            align-items: right;
+          }
+        }
+        span {
+           align-items: right;
+           font-weight: 700;
+        }
+      }
+      .discount-info {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin-left: 30px;
+        margin-right: 30px;
+        p {
+          font-weight: 400;
+          span {
+            align-items: right;
+          }
+        }
+        span {
+           align-items: right;
+           font-weight: 700;
+        }
+      }
+      .extra-info {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        p {
+          font-weight: 700;
+          span {
+            align-items: right;
+          }
+        }
+        span {
+           align-items: right;
+           font-weight: 700;
+        }
+      }
+    }
+    .total-section {
+      margin-top: 30px;
+      .total-header {
+        background: #F2F5F7;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        padding: 2px 30px;
+        margin-bottom: 0px;
+        span {
+          font-family: $default-font;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 36px;
+          color: #000000;
+        }
+      }
+      .base-info {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 32px;
+        margin-left: 30px;
+        margin-right: 30px;
+        p {
+          span {
+            align-items: right;
+          }
+        }
+        span {
+           align-items: right;
+           font-weight: 700;
+        }
+      }
+      .base-payment-frequency {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+        margin-left: 30px;
+        margin-right: 30px;
+        .payment-frequency {
+          font-weight: 700;
+        }
+      }
+      .medi-info {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin-left: 30px;
+        margin-right: 30px;
+        span {
+          .medi-label {
+            align-items: right;
+            font-weight: 700;
+          }
+        }
+        .price-tag {
+          p {
+            align-items: right;
+            font-weight: 700;
+          }
+        }
+      }
+      hr {
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+      .rider-info {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 32px;
+        margin-left: 30px;
+        margin-right: 30px;
+        p {
+          span {
+            align-items: right;
+          }
+        }
+        span {
+           align-items: right;
+           font-weight: 700;
+        }
+      }
+      .rider-payment-frequency {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+        margin-left: 30px;
+        margin-right: 30px;
+        .payment-frequency {
+          font-weight: 700;
+        }
+      }
+      hr {
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+    }
+    .payable-section {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 30px;
+      margin-right: 30px;
+      margin-bottom: 30px;
+      .payable-info {
+        span {
+          text-align: left;
+          p {
+            font-family: $default-font;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 20px;
+            color: #000000;
+          }
+        }
+      }
+      span {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: right;
+        color: #000000;
+        span {
+          font-weight: 400;
+        }
+      }
+    }
+    .note-section {
+      margin-left: 30px;
+      margin-right: 30px;
+      p {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 20px;
+        color: #68737A;
+        margin-bottom: 0px;
       }
     }
   }
@@ -666,7 +1117,7 @@
           &.payment-info {
             padding: 20px;
           }
-        } 
+        }
       }
     }
   }
@@ -821,7 +1272,7 @@
               }
             }
           }
-        } 
+        }
       }
     }
   }
@@ -977,7 +1428,7 @@
               }
             }
           }
-        } 
+        }
       }
     }
   }

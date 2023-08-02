@@ -288,14 +288,17 @@ function DetailsCommonController(dataStoreService, $scope, $ngRedux, $rootScope,
   });
 
   function stickyPolicyDetails() {
-    let summaryHeader = $('.summary-header');
-    let pruHeader = $('#pruHeader');
-    let navigate = $('.summary-navbar');
-    let contentTitle = $('.content-title-box');
-    let myBannerInfo = $('.my-info-banner');
-    let headerWarning = $('.header-waring');
-    let headerHeight = summaryHeader.height() + pruHeader.height() + navigate.height() + contentTitle.height() + myBannerInfo.height() + headerWarning.height();
-    utils.stickyPolicy('#applicationSummaryLeftContents', '.application-summary-container .policy-details-container', $window.innerWidth, $(window).scrollTop(), headerHeight);
+    const creditCardEnrollmentEnabled = dataStoreService.getItem('creditCardEnrollmentEnabled');
+    if (!creditCardEnrollmentEnabled) {
+      let summaryHeader = $('.summary-header');
+      let pruHeader = $('#pruHeader');
+      let navigate = $('.summary-navbar');
+      let contentTitle = $('.content-title-box');
+      let myBannerInfo = $('.my-info-banner');
+      let headerWarning = $('.header-waring');
+      let headerHeight = summaryHeader.height() + pruHeader.height() + navigate.height() + contentTitle.height() + myBannerInfo.height() + headerWarning.height();
+      utils.stickyPolicy('#applicationSummaryLeftContents', '.application-summary-container .policy-details-container', $window.innerWidth, $(window).scrollTop(), headerHeight);
+    }
   }
 
   // reset policy position when policy's height changed
@@ -590,6 +593,24 @@ function DetailsCommonController(dataStoreService, $scope, $ngRedux, $rootScope,
       if (dataStoreService.getItem('countryInfo')) {
         dataStoreService.session.setObject('countryInfo', dataStoreService.getItem('countryInfo'));
       }
+      if (dataStoreService.getItem('basePaymentFrequency')) {
+        dataStoreService.session.setObject('basePaymentFrequency', dataStoreService.getItem('basePaymentFrequency'));
+      }
+      if (dataStoreService.getItem('creditCardEnrollmentEnabled')) {
+        dataStoreService.session.setObject('creditCardEnrollmentEnabled', dataStoreService.getItem('creditCardEnrollmentEnabled'));
+      }
+      if (dataStoreService.getItem('creditCardEnrollmentIpayUrl')) {
+        dataStoreService.session.setObject('creditCardEnrollmentIpayUrl', dataStoreService.getItem('creditCardEnrollmentIpayUrl'));
+      }
+      if (dataStoreService.getItem('creditCardEnrollmentAppId')) {
+        dataStoreService.session.setObject('creditCardEnrollmentAppId', dataStoreService.getItem('creditCardEnrollmentAppId'));
+      }
+      if (dataStoreService.getItem('creditCardEnrollmentPollingCount')) {
+        dataStoreService.session.setObject('creditCardEnrollmentPollingCount', dataStoreService.getItem('creditCardEnrollmentPollingCount'));
+      }
+      if (dataStoreService.getItem('creditCardEnrollmentPollingDelay')) {
+        dataStoreService.session.setObject('creditCardEnrollmentPollingDelay', dataStoreService.getItem('creditCardEnrollmentPollingDelay'));
+      }
 
       //getting data from session and putting back to page after MyInfo page reload
       if (dataStoreService.session.getValue('isV2UX')) {
@@ -657,6 +678,24 @@ function DetailsCommonController(dataStoreService, $scope, $ngRedux, $rootScope,
       }
       if (dataStoreService.session.getObject('countryInfo')) {
         dataStoreService.setItem('countryInfo', dataStoreService.session.getObject('countryInfo'));
+      }
+      if (dataStoreService.session.getObject('basePaymentFrequency')) {
+        dataStoreService.setItem('basePaymentFrequency', dataStoreService.session.getObject('basePaymentFrequency'));
+      }
+      if (dataStoreService.session.getObject('creditCardEnrollmentEnabled')) {
+        dataStoreService.setItem('creditCardEnrollmentEnabled', dataStoreService.session.getObject('creditCardEnrollmentEnabled'));
+      }
+      if (dataStoreService.session.getObject('creditCardEnrollmentIpayUrl')) {
+        dataStoreService.setItem('creditCardEnrollmentIpayUrl', dataStoreService.session.getObject('creditCardEnrollmentIpayUrl'));
+      }
+      if (dataStoreService.session.getObject('creditCardEnrollmentAppId')) {
+        dataStoreService.setItem('creditCardEnrollmentAppId', dataStoreService.session.getObject('creditCardEnrollmentAppId'));
+      }
+      if (dataStoreService.session.getObject('creditCardEnrollmentPollingCount')) {
+        dataStoreService.setItem('creditCardEnrollmentPollingCount', dataStoreService.session.getObject('creditCardEnrollmentPollingCount'));
+      }
+      if (dataStoreService.session.getObject('creditCardEnrollmentPollingDelay')) {
+        dataStoreService.setItem('creditCardEnrollmentPollingDelay', dataStoreService.session.getObject('creditCardEnrollmentPollingDelay'));
       }
     }
   }
